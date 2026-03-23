@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════
+   DESIGN SYSTEM — AutoHaus Premium Landing
+   Modern, subtle, professional. Generous whitespace.
+   ═══════════════════════════════════════════════════════ */
+
+@theme inline {
+  --color-background: #06080a;
+  --color-foreground: #f0f0f0;
+  --color-surface: #0d1117;
+  --color-surface-raised: #151b25;
+  --color-surface-glass: rgba(13, 17, 23, 0.7);
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
+
+  --color-accent: #c9a84c;
+  --color-accent-light: #dfc06e;
+  --color-accent-dark: #a88b35;
+  --color-accent-muted: rgba(201, 168, 76, 0.08);
+
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #8b95a5;
+  --color-text-muted: #5a6377;
+
+  --font-heading: var(--font-outfit);
+  --font-body: var(--font-inter);
+}
+
+/* ─── BASE ────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(201, 168, 76, 0.3);
+  color: #fff;
+}
+
+/* ─── SCROLL REVEAL ───────────────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── GRADIENT TEXT ────────────────────────────────────── */
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 50%, var(--color-accent-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── GLASS CARD ──────────────────────────────────────── */
+
+.glass-card {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: 0 8px 48px rgba(201, 168, 76, 0.04);
+  transform: translateY(-2px);
+}
+
+/* ─── BUTTON SHINE ────────────────────────────────────── */
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: #06080a;
+  font-weight: 700;
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover::after {
+  left: 120%;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 40px rgba(201, 168, 76, 0.25);
+  transform: scale(1.02);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* ─── OUTLINE BUTTON ──────────────────────────────────── */
+
+.btn-outline {
+  position: relative;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--color-accent);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-accent);
+  background: rgba(201, 168, 76, 0.06);
+}
+
+/* ─── SUBTLE GLOW BACKGROUND ─────────────────────────── */
+
+.glow-accent {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── SECTION DIVIDER ─────────────────────────────────── */
+
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+
+/* ─── FORM INPUTS ─────────────────────────────────────── */
+
+.form-input {
+  background: rgba(13, 17, 23, 0.6);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(201, 168, 76, 0.3);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.06);
+  background: rgba(13, 17, 23, 0.9);
+}
+
+/* ─── NAV GLASS ───────────────────────────────────────── */
+
+.nav-glass {
+  background: rgba(6, 8, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ─── STAR RATING ─────────────────────────────────────── */
+
+.star {
+  color: var(--color-accent);
+}
+
+/* ─── SCROLLBAR ───────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-raised);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
