@@ -89,7 +89,7 @@ export default function LeadForm() {
   return (
     <section
       id="contact"
-      className="py-28 sm:py-36 relative"
+      className="py-12 sm:py-16 relative"
       ref={sectionRef}
     >
       {/* Subtle background glow */}

@@ -30,7 +30,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center pt-24 pb-20"
+      className="relative min-h-[85vh] flex items-center pt-16 pb-8"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
